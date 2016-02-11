@@ -1,12 +1,13 @@
 project(AlgorithmPractice)
-
-set(CMAKE_INCLUDE_CURRENT_DIR OFF)
+cmake_minimum_required(VERSION 2.8)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
 include(gtest)
-enable_testing()
+include(config)
+
+# include_directories( ${CMAKE_CURRENT_BINARY_DIR} )
 
 # Including all the subfolders
-add_subdirectory(include)
+enable_testing()
 add_subdirectory(src)
 add_subdirectory(tests)
