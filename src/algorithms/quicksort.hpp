@@ -5,6 +5,8 @@ namespace AP
     namespace algorithms 
     {
 
+        using std::swap;
+
         template <typename Iterator>
         Iterator partition(Iterator begin, Iterator end, std::random_access_iterator_tag)
         {
@@ -17,14 +19,14 @@ namespace AP
             {
                 if ( *r > *pivot )
                 {
-                    std::swap(*r, *l);
+                    swap(*r, *l);
                 }
                 if ( *l < *pivot )
                 {
                    l++; 
                 }
             }
-            std::swap(*l, *pivot);
+            swap(*l, *pivot);
             return pivot;
         }
 
