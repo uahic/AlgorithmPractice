@@ -12,6 +12,8 @@ namespace AP
             Iterator l = begin;
             Iterator pivot = end;
             Iterator r;
+            std::advance( pivot, -1 );
+
             for ( r = begin; r != pivot; r++ )
             {
                 if ( *r > *pivot )
@@ -24,7 +26,7 @@ namespace AP
                 }
             }
             std::swap(*l, *pivot);
-            return l;
+            return pivot;
         }
 
         template <typename Iterator>
