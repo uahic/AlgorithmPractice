@@ -5,20 +5,18 @@
 
 TEST ( Quicksort, ascending_descending )
 {
-    std::vector<int> numbers_sorted { 5, 6, 7, 8, 9, 9 };
-    std::vector<int> numbers_expected( numbers_sorted );
-    AP::algorithms::quicksort( begin(numbers_sorted), end(numbers_sorted) );
-    ASSERT_THAT( numbers_expected, ::testing::ContainerEq(numbers_sorted) );
-    std::reverse( numbers_sorted.begin(), numbers_sorted.end() );
-    std::reverse( numbers_expected.begin(), numbers_expected.end() );
-    ASSERT_THAT( numbers_expected, ::testing::ContainerEq(numbers_sorted) );
+    std::vector<int> numbers_ascending { 5, 6, 7, 8, 9, 9 };
+    AP::algorithms::quicksort( begin(numbers_ascending), end(numbers_ascending) );
+    ASSERT_THAT( numbers_ascending, ::testing::ElementsAre( 5, 6, 7, 8, 9, 9 ) );
+    std::reverse( begin(numbers_ascending), end(numbers_ascending) );
+    ASSERT_THAT( numbers_ascending, ::testing::ElementsAre( 9, 9, 8, 7, 6, 5 ) );
 }
 
 TEST ( Quicksort, alternating )
 {
     std::vector<int> numbers_alternating { 1, 3, 2, 4, 3, 5, 4, 6, 5 };
-    std::vector<int> numbers_expected    { 1, 2, 3, 3, 4, 4, 5, 5, 6 };
-    ASSERT_THAT( numbers_expected, ::testing::ContainerEq(numbers_alternating) );
+    AP::algorithms::quicksort( begin(numbers_alternating), end(numbers_alternating) );
+    ASSERT_THAT( numbers_alternating, ::testing::ElementsAre( 1, 2, 3, 3, 4, 4, 5, 5, 6 )  );
 }
 
 int main(int argc, char **argv) {
